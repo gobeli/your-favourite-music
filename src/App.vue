@@ -3,7 +3,7 @@
     <section v-if="!$spotify.token" class="hero is-fullheight is-dark is-bold">
       <div class="hero-body">
         <div class="container">
-          <div class="columns is-vcentered" style="justify-content: center">
+          <div class="login">
             <button class="button is-primary is-large" @click="login">Login with spotify</button>
           </div>
         </div>
@@ -135,5 +135,9 @@ export default {
       display: block;
       width: 100%;
     }
+  }
+  .login {
+    display: flex;
+    justify-content: center;
   }
 </style>
