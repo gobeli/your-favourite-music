@@ -91,7 +91,7 @@ export default {
   methods: {
     login() {
       this.$spotify.login().then((url) => {
-        window.location.href = wind
+        window.location.href = url
 	    });
     },
     logout() {
