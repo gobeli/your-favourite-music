@@ -91,8 +91,12 @@ export default {
   methods: {
     login() {
       this.$spotify.login().then((url) => {
-        window.location.href = url
+        window.location.href = wind
 	    });
+    },
+    logout() {
+      localStorage.removeItem('token')
+      location.reload()
     },
     getImage(item) {
       if (item && item.images) {
@@ -104,10 +108,12 @@ export default {
       if (type === 'favourite genres') {
         type = 'artists'
       }
-      this.user.top(type, { limit: 100, time_range: this.timeRange  }).then((x) => {
-        this[type] = x.map(a => Object.assign(a, {popularity: a.popularity + ' / 100'}))
-        if (type === 'artists') this.getGenres()
-      })
+      this.user.top(type, { limit: 100, time_range: this.timeRange  })
+        .catch((err) => this.logout())
+        .then((x) => {
+          this[type] = x.map(a => Object.assign(a, {popularity: a.popularity + ' / 100'}))
+          if (type === 'artists') this.getGenres()
+        })
     },
     getGenres() {
       let genres = [];
