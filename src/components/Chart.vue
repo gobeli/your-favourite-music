@@ -7,7 +7,6 @@
       'getData': {
         handler: function (newData, oldData) {
           let chart = this._chart
-          console.log(newData)
           let newDataLabels = newData.datasets.map((dataset) => {
             return dataset.label
           })

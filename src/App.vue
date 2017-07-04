@@ -11,7 +11,7 @@
     </section>
     <div class="container" v-if="$spotify.token">
       <div class="content">
-        <h1 class="title is-2">My favourite Music</h1>
+        <h1 class="title is-2">Your favourite Music</h1>
       </div>
       <div class="tabs is-toggle is-fullwidth">
         <ul>
@@ -126,7 +126,6 @@ export default {
         }
       }
       this.genres = genres.sort((a,b) => b.count-a.count).splice(0, 10);
-      console.log(this.genres)
     }
   }
 }
