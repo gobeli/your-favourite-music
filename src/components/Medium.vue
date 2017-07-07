@@ -2,7 +2,7 @@
   <a target="_blank" :href="medium.url" class="media">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img :src="medium.image ? medium.image.url : ''">
+        <img v-if="medium.image" :src="medium.image ? medium.image.url : ''">
       </p>
     </figure>
     <div class="media-content content">
@@ -18,8 +18,12 @@
     props: ['medium']
   }
 </script>
-<style>
+<style lang="scss">
   .media {
     align-items: center;
+    .image {
+      background-image: linear-gradient(141deg, #1f191a 0%, #363636 71%, #46403f 100%);
+    }
   }
+
 </style>

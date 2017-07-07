@@ -33,3 +33,20 @@
     width: 1344px;
   }
 }
+
+.loader {
+  animation: spinAround 1000ms infinite linear;
+  border: 5px solid $primary;
+  border-bottom-color: transparent;
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
+
+#app {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+}
