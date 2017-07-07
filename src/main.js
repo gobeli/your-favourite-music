@@ -18,7 +18,7 @@ if (localStorage.getItem('token')) {
 } else if (window.location.hash.split('&')[0].split('=')[1]) {
   localStorage.setItem('token', window.location.hash.split('&')[0].split('=')[1])
   client.token = localStorage.getItem('token')
-  window.location = '/'
+  window.location = window.location.href.split("?")[0]
 }
 
 Vue.prototype.$spotify = client
