@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import {Client, TrackHandler, PlaylistHandler} from 'spotify-sdk';
@@ -17,7 +15,6 @@ if (localStorage.getItem('token')) {
   client.token = localStorage.getItem('token')
 } else if (window.location.hash.split('&')[0].split('=')[1]) {
   localStorage.setItem('token', window.location.hash.split('&')[0].split('=')[1])
-  client.token = localStorage.getItem('token')
   window.location = window.location.href.split("?")[0]
 }
 

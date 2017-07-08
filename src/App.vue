@@ -117,6 +117,7 @@ export default {
     },
     getGenres() {
       let genres = [];
+      if (!this.artists) return;
       for (var genre of this.artists.map(a => a.genres).reduce((a,b) => a.concat(b))) {
         const gen = genres.find(g => g.genre === genre)
         if (gen) {
