@@ -10,12 +10,13 @@ client.settings = {
   scopes: ['user-top-read'],
   redirect_uri: process.env.NODE_ENV === 'production' ? 'https://gobeli.github.io/your-favourite-music/' : 'http://localhost:8080/'
 };
-
+console.log(localStorage.getItem('token'))
 if (localStorage.getItem('token')) {
   client.token = localStorage.getItem('token')
 } else if (window.location.hash.split('&')[0].split('=')[1]) {
   localStorage.setItem('token', window.location.hash.split('&')[0].split('=')[1])
-  window.location = window.location.href.split("?")[0]
+  client.token = localStorage.getItem('token')
+  window.location = window.location.href.split("access_token")[0]
 }
 
 Vue.prototype.$spotify = client

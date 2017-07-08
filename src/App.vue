@@ -68,6 +68,7 @@ export default {
     'app-medium': Medium
   },
   mounted() {
+    console.log(this.$spotify)
     if (this.$spotify.token) {
       this.user = new UserHandler()
       this.activate('artists')
